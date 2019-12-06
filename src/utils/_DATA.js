@@ -236,24 +236,24 @@ function generateUID () {
   return Math.random().toString(36).substring(2, 15) + Math.random().toString(36).substring(2, 15)
 }
 
-function formatTweet ({ author, text, replyingTo = null }) {
+function formatTweet ({ author, text, replyingto = null }) {
   return {
-    author,
     id: generateUID(),
+    author,
     likes: [],
     replies: [],
     text,
     timestamp: Date.now(),
-    replyingTo,
+    replyingto,
   }
 }
 
-export function _saveTweet ({ text, author, replyingTo }) {
+export function _saveTweet ({ text, author, replyingto }) {
   return new Promise((res, rej) => {
     const formattedTweet = formatTweet({
       text,
       author,
-      replyingTo
+      replyingto
     })
 
     setTimeout(() => {
